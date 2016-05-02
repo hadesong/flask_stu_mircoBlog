@@ -16,7 +16,7 @@ def db():
     port = sae.const.MYSQL_PORT
     string = db+"\n"+user+"\n"+pw+"\n"+host+"\n"+str(port)
     try:
-        database = MySQLdb.connect(host=host ,port=port , user=user , passwd=pw , db=db )
+        database = MySQLdb.connect(host=host , user=user , passwd=pw , db=db )
         cur = database.cursor()
         sql = '''
         select * from test;
