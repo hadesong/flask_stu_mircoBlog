@@ -13,7 +13,7 @@ def db():
     user = sae.const.MYSQL_USER
     pw = sae.const.MYSQL_PASS
     host = sae.const.MYSQL_HOST
-    port = sae.const.MYSQL_PORT
+    port = int(sae.const.MYSQL_PORT)
     string = db+"\n"+user+"\n"+pw+"\n"+host+"\n"+str(port)
     try:
         database = MySQLdb.connection(host=host , user=user , passwd=pw , db=db ,  port=port)
