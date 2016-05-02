@@ -21,7 +21,7 @@ def db():
         # 使用execute方法执行SQL语句
         cursor.execute("SELECT VERSION()")
         # 使用 fetchone() 方法获取一条数据库。
-        data = cursor.fetchone()
+        data = cursor.fetchone(-1)
 
 #        conn.select_db(db)
 #        sql = "select * from test ;"
