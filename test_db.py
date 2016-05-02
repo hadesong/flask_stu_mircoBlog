@@ -3,7 +3,7 @@ from flask import Flask , render_template , g , request
 import random
 import time
 import MySQLdb
-
+import sae.const
 
 app = Flask(__name__)
 
@@ -11,7 +11,7 @@ app = Flask(__name__)
 def db():
 	info = ''
 	try:
-		db = MySQLdb.connect('SAE_MYSQL_HOST_M' , 'SAE_MYSQL_USER' , 'SAE_MYSQL_PASS' , 'app_moxx')
+		db = MySQLdb.connect(sae.const.MYSQL_HOST,sae.const.MYSQL_USER, sae.const.MYSQL_PASS , sae.const.MYSQL_DB)
 		info = 'connect_seccess'
 	except Exception, e:
 		info = 'connect_fail'
