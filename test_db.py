@@ -16,16 +16,14 @@ def db():
 	HOST_S = sae.const.MYSQL_HOST_S 
 	PORT = int(sae.const.MYSQL_PORT)
 
-	db = MySQLdb.connect(HOST_M  , USER , PASS , DB)
-
-	cur = db.cursor()
-	sql = '''
-	select * from test;
-
-	'''
-	cur.execut(sql)
-	#db.commit()
-	return sql
+	#db = MySQLdb.connect(HOST_M  , USER , PASS , DB)
+	#cur = db.cursor()
+	#sql = '''
+	#select * from test;
+	#'''
+	#cur.execut(sql)
+	##db.commit()
+	return DB+USER+PASS+HOST_M+PORT
 
 
 if __name__ == '__main__':
