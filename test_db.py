@@ -22,7 +22,7 @@ def db():
 	sql = '''
 	select * from test;
 
-	'''%(time.time)
+	'''
 	cur.execut(sql)
 	#db.commit()
 	return sql
