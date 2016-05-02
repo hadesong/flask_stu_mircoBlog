@@ -22,7 +22,7 @@ def db():
         cursor.execute("SELECT VERSION()")
         # 使用 fetchone() 方法获取一条数据库。
         data = cursor.fetchall()
-        sql = "select * from test ;"
+        sql = "use  %s ; select * from test ;"%db
         cursor.execute(sql)
         info = cursor.fetchall()
        # info = []
