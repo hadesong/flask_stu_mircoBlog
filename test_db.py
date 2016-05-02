@@ -17,18 +17,24 @@ def db():
     string = db+"\n"+user+"\n"+pw+"\n"+host+"\n"+str(port)
     try:
         conn = MySQLdb.connection(host=host , user=user , passwd=pw ,  port=port)
-        conn.select_db(db)
-        sql = "select * from test ;"
-        conn.query(sql)
-        rec = conn.store_result()
-        res = rec.fetch_row()
+        cursor = conn.cursor()
+        # 使用execute方法执行SQL语句
+        cursor.execute("SELECT VERSION()")
+        # 使用 fetchone() 方法获取一条数据库。
+        data = cursor.fetchone()
+
+#        conn.select_db(db)
+#        sql = "select * from test ;"
+#        conn.query(sql)
+#        rec = conn.store_result()
+#        res = rec.fetch_row()
 
     except Exception, e:
         return "error%s"%e+"<br>%s"%string
 
 
 
-    return res
+    return data
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0' , port=44444 , debug=True)
