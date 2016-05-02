@@ -21,9 +21,9 @@ def db():
         # 使用execute方法执行SQL语句
         cursor.execute("SELECT VERSION()")
         # 使用 fetchone() 方法获取一条数据库。
-        data = cursor.fetchone()
+        data = cursor.fetchall()
         info = []
-        for x in cursor.fetchmany(-1):
+        for x in cursor.fetchall():
             info.append(x)
 
 
