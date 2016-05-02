@@ -2,13 +2,33 @@ from flask import Flask , render_template , g , request
 import random
 import time
 import MySQLdb
+import sae.const
 
 
 app = Flask(__name__)
 
 @app.route('/db')
 def db():
-	return "test_db"
+	      # 数据库名
+    # 用户名
+    # 密码
+    # 主库域名（可读写）
+	info = ''
+	try:
+		db = MySQLdb.connect( sae.const.MYSQL_HOST , sae.const.MYSQL_USER, sae.const.MYSQL_PASS , sae.const.MYSQL_DB)
+		info = 'connect_seccess'
+	except Exception, e:
+		info = 'connect_fail'
+
+	cur = db.cursor()
+	sql = '''
+	create table test(num int , time int);
+	insert into test (num , time) values ('1234567' , %s);
+
+	'''%(time.time)
+	cur.execut(sql)
+	db.commit()
+	return "test_db" + info
 
 
 if __name__ == '__main__':
