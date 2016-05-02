@@ -15,17 +15,17 @@ def db():
     host = sae.const.MYSQL_HOST
     port = int(sae.const.MYSQL_PORT)
     string = db+"\n"+user+"\n"+pw+"\n"+host+"\n"+str(port)
+    try:
+        database = MySQLdb.connect(host , user , pw  ,db )
+        cur = database.cursor()
+        sql = '''
+        select * from test;
+        '''
+        cur.execut(sql)
+        database.commit()
+    except Exception, e:
+        pass
 
-    database = MySQLdb.connect(host , user , pw  ,db )
-
-    cur = database.cursor()
-
-    sql = '''
-    select * from test;
-    '''
-    cur.execut(sql)
-    
-    database.commit()
 
     return string
 
