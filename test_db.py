@@ -3,17 +3,17 @@ from flask import Flask , render_template , g , request
 import random
 import time
 import MySQLdb
+import sae.const
 
 app = Flask(__name__)
 
 @app.route('/db')
 def db():
-	DB = SAE_MYSQL_DB 
-	USER = SAE_MYSQL_USER 
-	PASS = SAE_MYSQL_PASS 
-	HOST_M = SAE_MYSQL_HOST 
-	HOST_S = SAE_MYSQL_HOST_S 
-	PORT = int(SAE_MYSQL_PORT)
+    db = sae.const.MYSQL_DB
+    user = sae.const.MYSQL_USER
+    pw = sae.const.MYSQL_PASS
+    host = sae.const.MYSQL_HOST
+    port = int(sae.const.MYSQL_PORT)
 
 	#db = MySQLdb.connect(HOST_M  , USER , PASS , DB)
 	#cur = db.cursor()
@@ -22,7 +22,7 @@ def db():
 	#'''
 	#cur.execut(sql)
 	##db.commit()
-	return DB+USER+PASS+HOST_M+PORT
+	return DB
 
 
 if __name__ == '__main__':
