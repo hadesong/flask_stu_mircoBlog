@@ -16,7 +16,7 @@ def db():
     port = int(sae.const.MYSQL_PORT)
     string = db+"\n"+user+"\n"+pw+"\n"+host+"\n"+str(port)
     try:
-        conn = MySQLdb.connection(host=host , user=user , passwd=pw ,  port=port)
+        conn = MySQLdb.connect(host=host , user=user , passwd=pw ,  port=port)
         cursor = conn.cursor()
         # 使用execute方法执行SQL语句
         cursor.execute("SELECT VERSION()")
