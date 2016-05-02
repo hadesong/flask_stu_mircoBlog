@@ -9,9 +9,15 @@ app = Flask(__name__)
 
 @app.route('/db')
 def db():
+	DB = sae.const.MYSQL_DB 
+	USER = sae.const.MYSQL_USER 
+	PASS = sae.const.MYSQL_PASS 
+	HOST_M = sae.const.MYSQL_HOST 
+	HOST_S = sae.const.MYSQL_HOST_S 
+	PORT = int(sae.const.MYSQL_PORT)
 	info = ''
 	try:
-		db = MySQLdb.connect(sae.const.MYSQL_HOST,sae.const.MYSQL_USER, sae.const.MYSQL_PASS , sae.const.MYSQL_DB)
+		db = MySQLdb.connect(HOST_M , PORT , USER , PASS , DB)
 		info = 'connect_seccess'
 	except Exception, e:
 		info = 'connect_fail'
