@@ -24,7 +24,8 @@ def db():
         cur.execut(sql)
         database.commit()
     except Exception, e:
-        pass
+        return "error"
+
 
 
     return string
