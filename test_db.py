@@ -22,9 +22,9 @@ def db():
         cursor.execute("SELECT VERSION()")
         # 使用 fetchone() 方法获取一条数据库。
         data = cursor.fetchall()
-        info = []
-        for x in cursor.fetchall():
-            info.append(x)
+       # info = []
+       # for x in cursor.fetchall():
+       #     info.append(x)
 
 
 #        conn.select_db(db)
@@ -38,7 +38,7 @@ def db():
 
 
 
-    return info
+    return data
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0' , port=44444 , debug=True)
