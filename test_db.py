@@ -15,22 +15,17 @@ def db():
 	HOST_M = sae.const.MYSQL_HOST 
 	HOST_S = sae.const.MYSQL_HOST_S 
 	PORT = int(sae.const.MYSQL_PORT)
-	info = ''
-	try:
-		db = MySQLdb.connect(HOST_M , PORT , USER , PASS , DB)
-		info = 'connect_seccess'
-	except Exception, e:
-		info = 'connect_fail'
+
+	db = MySQLdb.connect(HOST_M , PORT , USER , PASS , DB)
 
 	cur = db.cursor()
 	sql = '''
-	create table test(num int , time int);
-	insert into test (num , time) values ('1234567' , %s);
+	select * from test;
 
 	'''%(time.time)
 	cur.execut(sql)
-	db.commit()
-	return "test_db" + info
+	#db.commit()
+	return sql
 
 
 if __name__ == '__main__':
