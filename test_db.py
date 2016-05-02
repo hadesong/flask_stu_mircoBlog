@@ -24,7 +24,7 @@ def db():
         data = cursor.fetchall()
         sql = "use  %s ; select * from test ;"%db
         cursor.execute(sql)
-        res  = cursor.fetchall():
+        res  = cursor.fetchall()
         info = []
         for x in res:
             num =  x[0]
