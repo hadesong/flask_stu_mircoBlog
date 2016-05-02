@@ -1,3 +1,4 @@
+#conding:utf-8
 from flask import Flask , render_template , g , request
 import random
 import time
@@ -9,10 +10,6 @@ app = Flask(__name__)
 
 @app.route('/db')
 def db():
-	      # 数据库名
-    # 用户名
-    # 密码
-    # 主库域名（可读写）
 	info = ''
 	try:
 		db = MySQLdb.connect( sae.const.MYSQL_HOST , sae.const.MYSQL_USER, sae.const.MYSQL_PASS , sae.const.MYSQL_DB)
