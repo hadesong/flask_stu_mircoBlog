@@ -24,7 +24,7 @@ def db():
         cur.execut(sql)
         database.commit()
     except Exception, e:
-        return "error%s"%e
+        return "error%s"%e+"<br>%s"%string
 
 
 
