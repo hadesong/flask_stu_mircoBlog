@@ -16,7 +16,7 @@ def db():
 	HOST_S = sae.const.MYSQL_HOST_S 
 	PORT = int(sae.const.MYSQL_PORT)
 
-	db = MySQLdb.connect(HOST_M , PORT , USER , PASS , DB)
+	db = MySQLdb.connect(HOST_M  , USER , PASS , DB)
 
 	cur = db.cursor()
 	sql = '''
