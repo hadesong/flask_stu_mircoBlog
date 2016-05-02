@@ -16,19 +16,19 @@ def db():
     port = int(sae.const.MYSQL_PORT)
     string = db+"\n"+user+"\n"+pw+"\n"+host+"\n"+str(port)
     try:
-        database = MySQLdb.connection(host=host , user=user , passwd=pw , db=db ,  port=port)
-        cur = database.cursor()
-        sql = '''
-        select * from test;
-        '''
-        cur.execut(sql)
-        database.commit()
+        conn = MySQLdb.connection(host=host , user=user , passwd=pw ,  port=port)
+        conn.select_db(db)
+        sql = "select * from test ;"
+        conn.query(sql)
+        rec = conn.store_result()
+        res = rec.fetch_row()
+
     except Exception, e:
         return "error%s"%e+"<br>%s"%string
 
 
 
-    return string
+    return res
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0' , port=44444 , debug=True)
