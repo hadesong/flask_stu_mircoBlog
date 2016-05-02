@@ -15,15 +15,19 @@ def db():
     host = sae.const.MYSQL_HOST
     port = int(sae.const.MYSQL_PORT)
     string = db+"\n"+user+"\n"+pw+"\n"+host+"\n"+str(port)
-    return string
-	#db = MySQLdb.connect(HOST_M  , USER , PASS , DB)
-	#cur = db.cursor()
-	#sql = '''
-	#select * from test;
-	#'''
-	#cur.execut(sql)
-	##db.commit()
 
+    database = MySQLdb.connect(host , user , pw  ,db )
+
+    cur = database.cursor()
+
+    sql = '''
+    select * from test;
+    '''
+    cur.execut(sql)
+    
+    database.commit()
+
+    return string
 
 if __name__ == '__main__':
-	app.run(host='0.0.0.0' , port=44444 , debug=True)
+    app.run(host='0.0.0.0' , port=44444 , debug=True)
