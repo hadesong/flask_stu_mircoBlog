@@ -22,7 +22,7 @@ def db():
 	#'''
 	#cur.execut(sql)
 	##db.commit()
-	return DB
+	return "sdfsdf"
 
 
 if __name__ == '__main__':
