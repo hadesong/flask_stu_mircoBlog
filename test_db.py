@@ -14,7 +14,7 @@ def db():
     pw = sae.const.MYSQL_PASS
     host = sae.const.MYSQL_HOST
     port = int(sae.const.MYSQL_PORT)
-
+    return "sdfsdf"
 	#db = MySQLdb.connect(HOST_M  , USER , PASS , DB)
 	#cur = db.cursor()
 	#sql = '''
@@ -22,7 +22,6 @@ def db():
 	#'''
 	#cur.execut(sql)
 	##db.commit()
-	return "sdfsdf"
 
 
 if __name__ == '__main__':
