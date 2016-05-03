@@ -25,11 +25,7 @@ def db():
         sql = "use  %s ; select * from test ;"%db
         cursor.execute(sql)
         res  = cursor.fetchall()
-        info = []
-        for x in res:
-            num =  x[0]
-            time = x[1]
-            info.append(num+time)
+        #sel1 = """insert into test(num ,  time) values ("2342" , "2222222222")"""
         
        # info = []
        # for x in cursor.fetchall():
@@ -47,7 +43,7 @@ def db():
 
 
 
-    return str(info)
+    return res+"dddddddd"+sql
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0' , port=44444 , debug=True)
