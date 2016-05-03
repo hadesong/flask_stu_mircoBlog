@@ -38,7 +38,7 @@ def db():
 #        rec = conn.store_result()
 #        res = rec.fetch_row()
 
-        return res+"dddddddd"+sql
+        return res
     except Exception, e:
         return "error%s"%e+"<br>%s"%string
     return "ddddddddddd<br>"+string
