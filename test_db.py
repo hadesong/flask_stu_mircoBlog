@@ -3,26 +3,35 @@ from flask import Flask , render_template , g , request
 import random
 import time
 import MySQLdb
-import sae.const
 
 app = Flask(__name__)
 
 @app.route('/db')
 def db():
-    db = sae.const.MYSQL_DB
-    user = sae.const.MYSQL_USER
-    pw = sae.const.MYSQL_PASS
-    host = sae.const.MYSQL_HOST
-    port = int(sae.const.MYSQL_PORT)
+    db = 'test'
+    user = 'root'
+    pw = '111111'
+    host = 'localhost'
+    port = 3307
     string = db+"\n"+user+"\n"+pw+"\n"+host+"\n"+str(port)
     try:
-        conn = MySQLdb.connect(host=host , user=user , passwd=pw ,  port=port)
+        import sae.const
+        db = sae.const.MYSQL_DB
+        user = sae.const.MYSQL_USER
+        pw = sae.const.MYSQL_PASS
+        host = sae.const.MYSQL_HOST
+        port = int(sae.const.MYSQL_PORT)
+        string = db+"\n"+user+"\n"+pw+"\n"+host+"\n"+str(port)
+    except Exception, e:
+        pass
+    try:
+        conn = MySQLdb.connect(host=host , user=user , passwd=pw  , db=db)
         cursor = conn.cursor()
         # 使用execute方法执行SQL语句
-        cursor.execute("SELECT VERSION()")
+        v = cursor.execute("SELECT VERSION()")
         # 使用 fetchone() 方法获取一条数据库。
         data = cursor.fetchall()
-        sql = "use  %s ; select * from test ;"%db
+        sql = "select * from test ;"
         cursor.execute(sql)
         res  = cursor.fetchall()
         #sel1 = """insert into test(num ,  time) values ("2342" , "2222222222")"""
@@ -38,7 +47,7 @@ def db():
 #        rec = conn.store_result()
 #        res = rec.fetch_row()
 
-        return res
+        return str(res) + str(v) + sql
     except Exception, e:
         return "error%s"%e+"<br>%s"%string
     return "ddddddddddd<br>"+string
