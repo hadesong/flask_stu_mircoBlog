@@ -38,12 +38,13 @@ def db():
 #        rec = conn.store_result()
 #        res = rec.fetch_row()
 
+        return res+"dddddddd"+sql
     except Exception, e:
         return "error%s"%e+"<br>%s"%string
+    return "ddddddddddd<br>"+string
 
 
 
-    return res+"dddddddd"+sql
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0' , port=44444 , debug=True)
