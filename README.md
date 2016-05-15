@@ -20,27 +20,50 @@
         [[ 没有做表单验证 !! 有被注入风险 !!]]
 
 D:.
+|
 │  app.db
+|
 │  config.py
+|
 │  README.md
+|
 │  run.py
+|
 │
+|
 └─app_package
+    |
     │  admin.py
+    |
     │  gbook.py
+    |
     │  views.py
+    |
     │  __init__.py
-    │
+    |
     ├─static
+    |
     └─templates
+
             404.html
+
             500.html
+
             admin.html
+
             base.html
+
             delete.html
+
             gbooks.html
+
             index.html
+
             login.html
+
             modify.html
+
             post.html
+
             tags.html
+            
