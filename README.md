@@ -1,9 +1,11 @@
 一个简单的博客系统.....
 
-使用到:
+	使用到:
+
 	flask \ bootstrap \ sqlite \
 
-功能:
+	功能:
+	
 	主页展示文章 , 每篇只显示前150字 , 点击文章名进入文章详情页
 
 	标签页..没做 , 考虑通过搜索数据库关键词添加标签
@@ -19,28 +21,5 @@
 		/admin , 验证失败 进入登录页面或返回主页/index
 		[[ 没有做表单验证 !! 有被注入风险 !!]]
 
-D:.
-│  app.db
-│  config.py
-│  README.md
-│  run.py
-│
-└─app_package
-	│  admin.py
-	│  gbook.py
-	│  views.py
-	│  __init__.py
-	│
-	├─static
-	└─templates
-			404.html
-			500.html
-			admin.html
-			base.html
-			delete.html
-			gbooks.html
-			index.html
-			login.html
-			modify.html
-			post.html
-			tags.html
+
+![image](https://github.com/hadesong/flask_stu_mircoBlog/raw/master/app_package/static/tree.png)
