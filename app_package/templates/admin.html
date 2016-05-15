@@ -1,0 +1,38 @@
+{% extends 'base.html'%} {% block index %}
+<div style="margin: 0 auto; width:75%">
+    <form action="/admin" method="post">
+        <div class="alert alert-info" role="alert">
+            <h4>添加文章 ...</h4>
+        </div>
+        <div class="form-group  ">
+            <input type="text" class="form-control" id="title" name="title" placeholder="文章标题...">
+        </div>
+        <div class="form-group  ">
+            <textarea class="form-control" rows="10" name="post" placeholder="历史正文..."></textarea>
+        </div>
+        <div align="right">
+            <button type="submit" class="btn btn-info">发表</button>
+        </div>
+    </form>
+    <!--##################################################################-->
+    <div class="page-header">
+        <h3><small>以往文章</small></h3>
+    </div>
+    {% for x in list %}
+    <div class="well">
+        <h4>{{ x[1] }} </h4>
+        <span class="glyphicon glyphicon-paperclip"></span> {{ x[3]}}
+        <div style="float:right">
+        <a href="/modify/{{x[0]}}">修改 </a>||
+        <a href="/delete/{{x[0]}}">删除</a>
+        </div>
+        <br>
+        <br>
+        <span class="glyphicon glyphicon-plus-sign"></span>
+        <div style='word-wrap:break-word; word-break:break-all;display:block;width:100%;'  >
+        <pre>{{ x[2][:150] }}.... </pre>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

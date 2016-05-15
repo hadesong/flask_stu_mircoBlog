@@ -1,0 +1,26 @@
+{% extends 'base.html'%} {% block index %} {% for x in text %}
+<div style="margin: 0 auto; width:75%">
+    <form action="/delete/{{ x[0]}} " method="post">
+        <div class="alert alert-info" role="alert">
+            <h4>删除文章 ...</h4>
+        </div>
+        <div class="jumbotron" style="margin: 0 auto; width:60%">
+            <div>
+                <h3 align="center">确定要删除 《{{ x[1] }}》 ?</h3>
+            </div>
+            <div style="float:right;width:60%">
+                    <button align="center" type="submit" class="btn btn-danger">删除</button>
+                    <a href="/admin" align="center">&nbsp;&nbsp;&nbsp;取消</a>
+            </div>
+        </div>
+    </form>
+    <!--##################################################################-->
+</div>
+{% endfor %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> {% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html'%} {% block index %}
+<form action="/login" method="post" >
+    <table width="100%" border="0">
+    <div style="margin: 0 auto; width:25%">
+                <div class="alert alert-info" role="alert">
+                <br>
+                    <h4><span class="glyphicon glyphicon-headphones"> 登录</span></h4>
+                </div>
+
+                <div class="form-group  ">
+                    <input type="text" class="form-control" id="name" name="username" placeholder="UserName...">
+                </div>
+
+                <div class="form-group  ">
+                    <input type="password" class="form-control" id="name" name="password" placeholder="PassWord...">
+                </div>
+
+                {% if login_msg %}
+                <p style="color:red;"> {{ login_msg}} </p>{% else %} {% endif %}
+
+                <input type="checkbox" checked="True" name="checkbox">记住我</input>
+                <div align="right">
+                    <button type="submit" class="btn btn-info">登录</button>
+                </div>
+    </div>
+    <div style="float:right; width:20%"></div>
+</form>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>  
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+{% endblock %}
+

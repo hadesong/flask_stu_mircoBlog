@@ -1,0 +1,14 @@
+{% extends 'base.html'%} {% block index %}
+<div style="margin: 0 auto; width:75%">
+    {% for x in text %}
+    <div class="well">
+ <h1>  <span class="glyphicon glyphicon-book">  {{ x[1] }}</h1></span>
+        <br>
+        <span class="glyphicon glyphicon-share-alt"> {{ x[3] }}</span>
+        <hr>
+        <br>
+        <pre> {{ x[2] }}</pre>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

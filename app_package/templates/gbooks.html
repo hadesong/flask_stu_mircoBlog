@@ -1,0 +1,41 @@
+{% extends 'base.html'%} {% block index %}
+<div style="margin: 0 auto; width:75%">
+    <form action="/gbook" method="post">
+        <div class="alert alert-info" role="alert">
+            <font size="4">
+            <span class="glyphicon glyphicon-send"></span>
+              来都来了</font>
+        </div>
+        <div style="width:30%">
+            <input type="text" class="form-control" id="name" name="gnickname" placeholder="昵称">
+        </div>
+        <br>
+        <div style="width:30%">
+            <input type="text" class="form-control" id="name" name="gemail" placeholder="邮箱">
+        </div>
+        <br>
+        <div>
+            <input type="text" class="form-control" id="name" name="gmessage" placeholder="流言蜚语">
+        </div>
+        <br>
+        <div style="float:right">
+            <button type="submit" class="btn btn-info">发表</button>
+        </div>
+    </form>
+    <br>
+    <br>
+    <hr>
+    <h3>历史正文</h3> {% for x in list %}
+    <div class="well">
+        <span class="glyphicon glyphicon-user" style="width:10%"> {{ x[1] }}</span>
+        <span class="glyphicon glyphicon-envelope"> {{ x[2] }}</span>
+        <br>
+        <br>
+        <span class="glyphicon glyphicon-share-alt"> {{ x[3] }}</span>
+        <br>
+        <div style="float:right">{{ x[4] }}</div>
+        <br>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
