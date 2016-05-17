@@ -32,9 +32,9 @@ def guest_book():
         text =  request.form.get('gmessage')
         #conn = sqlite3.connect('app.db')
         sql_insert = '''
- insert into gbooks( nikename , gemail ,  gtext , time) values ("%s" , "%s" ,"%s" , "%s");
- '''%(name , mail , text , ti)
-        conn.execute(sql_insert)
+ insert into gbooks( nikename , gemail ,  gtext , time) values (? , ? , ? , ?)
+ '''
+        conn.execute(sql_insert , (name , mail , text , ti))
         conn.commit()
         sql_select = '''select * from gbooks order by id desc;'''
         cur = conn.execute(sql_select)

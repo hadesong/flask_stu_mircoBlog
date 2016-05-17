@@ -52,17 +52,21 @@ def login():
             return redirect('/admin' )
     if request.method == 'POST':
         user = request.form['username']
-        pawd = hashlib.md5(request.form['password']).hexdigest()
+        #表单传入的是unicode编码的字节串  , 若要操作 需要转换为str字符串 ??不确定哦
+        pawd = request.form['password'].encode('utf-8')
+        hash_pawd = hashlib.md5(pawd).hexdigest()
+        #pawd = hashlib.md5(request.form['password']).hexdigest()
         if user != app.config['USERNAME']:
             login_msg =  'Error Username!'
-        elif pawd != app.config['PASSWORD']:
+        elif hash_pawd != app.config['PASSWORD']:
             login_msg = 'Error Password!'
         else:
             login_msg = 'Seuccessfully!!'
             rsp = make_response(redirect('/admin'))
             rsp.set_cookie('user' , user)
-            rsp.set_cookie('pawd' , pawd)
+            rsp.set_cookie('pawd' , hash_pawd)
             return  rsp
+            #return login_msg
     return render_template('login.html' , login_msg=login_msg)
 
 
@@ -89,9 +93,9 @@ def modify(id):
         title = request.form.get('title')
         post =  request.form.get('post')
         sql_update = '''
-        update posts set title = "%s" , post = "%s" , time="%s" where id = %s
-        '''%(title , post , ti , id)
-        conn.execute(sql_update)
+        update posts set title = ? , post = ? , time= ? where id = ? 
+        '''
+        conn.execute(sql_update , (title , post , ti , id))
         conn.commit()
         return redirect('/admin')
         #return sql_update

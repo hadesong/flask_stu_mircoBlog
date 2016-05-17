@@ -31,9 +31,9 @@ def admin_manage():
                 title = request.form.get('title')
                 post =  request.form.get('post')
                 sql_inster = '''
-insert into posts (title , post ,  time) values ("%s" , "%s" ,  "%s");
-                '''%(title , post , ti)
-                conn.execute(sql_inster)
+insert into posts (title , post ,  time) values (? , ? , ?);
+                '''
+                conn.execute(sql_inster , (title , post , ti))
                 conn.commit()
 
                 sql_select = '''select * from posts order by id DESC; '''
